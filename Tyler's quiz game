@@ -1,0 +1,49 @@
+import random
+
+class QuizGame:
+    def __init__(self, questions):
+        self.questions = questions
+        self.score = 0
+
+    def ask_question(self, question):
+        print(question['question'])
+        for i, option in enumerate(question['options'], 1):
+            print(f"{i}. {option}")
+        user_answer = input("Your choice (enter the number): ")
+        return int(user_answer)
+
+    def run_quiz(self):
+        random.shuffle(self.questions)
+        for question in self.questions:
+            user_choice = self.ask_question(question)
+            correct_answer = question['answer']
+
+            if user_choice == correct_answer:
+                print("Correct!\n")
+                self.score += 1
+            else:
+                print(f"Wrong! The correct answer was {correct_answer}: {question['options'][correct_answer - 1]}\n")
+
+        print(f"Quiz completed! Your score: {self.score}/{len(self.questions)}")
+
+
+# Sample questions for the quiz
+quiz_questions = [
+    {
+        'question': 'What is the capital of France?',
+        'options': ['Paris', 'Berlin', 'Rome', 'Madrid'],
+        'answer': 1
+    },
+    {
+        'question': 'Which programming language is this quiz written in?',
+        'options': ['Java', 'Python', 'C++', 'JavaScript'],
+        'answer': 2
+    },
+    {
+        'question': 'What is the largest planet in our solar system?',
+        'options': ['Earth', 'Jupiter', 'Mars', 'Venus'],
+        'answer': 2
+    }
+]
+game = QuizGame(quiz_questions)
+game.run_quiz()
