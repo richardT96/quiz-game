@@ -43,6 +43,16 @@ quiz_questions = [
         'question': 'What is the largest planet in our solar system?',
         'options': ['Earth', 'Jupiter', 'Mars', 'Venus'],
         'answer': 2
+    },
+    {
+        'question': 'What is the currency of Japan?',
+        'options': ['Yuan', 'Won', 'Yen', 'Ringgit'],
+        'answer': 3
+    },
+    {
+        'question': 'Who wrote "Romeo and Juliet"?',
+        'options': ['William Shakespeare', 'Jane Austen', 'Charles Dickens', 'Mark Twain'],
+        'answer': 1
     }
 ]
 game = QuizGame(quiz_questions)
